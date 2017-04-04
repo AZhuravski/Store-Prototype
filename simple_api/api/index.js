@@ -2,6 +2,27 @@ var router = require('express').Router();
 var mocks = require('./mock');
 var assign = require('object-assign');
 
+router.get('/product', function (req, res, next) {
+    var products = withComments(mocks.products).map(function (product) {
+            return assign({}, product, {
+                text: undefined
+            })
+        }),
+        limit = Number(req.query.limit) || products.length,
+        offset = Number(req.query.offset) || 0;
+
+    res.json(products.slice(offset, limit + offset))
+});
+
+router.get('/product/:id', function (req, res, next) {
+    var product = withComments(mocks.products).filter(function (product) {
+        return product.id == req.params.id
+    })[0];
+    if (product) return res.json(product);
+
+    res.status(404).json({error: "not found"});
+});
+
 router.get('/article', function (req, res, next) {
     var articles = withComments(mocks.articles).map(function (article) {
             return assign({}, article, {

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import store from '../store'
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux' // Redux functionality. It connects Root component with Store.
 
 class App extends Component {
     static propTypes = {
@@ -10,7 +10,10 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                {this.props.children}
+            	<div>
+            		Store Application
+                	{this.props.children}
+                </div>
             </Provider>
         )
     }
