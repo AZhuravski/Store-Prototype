@@ -9,8 +9,15 @@ class Product extends Component {
 
     render() {
         return (
-            <div>
-                <h3 onClick = {this.handleLoadProduct}>{this.props.product.title}</h3>
+            <div className="product" >
+                <div className="title" onClick={this.handleLoadProduct}>
+                    {this.props.product.title}
+                </div>
+                <div className="image">
+                </div>
+                <div className="price">
+                    {this.props.product.price}
+                </div>
             </div>
         )
     }

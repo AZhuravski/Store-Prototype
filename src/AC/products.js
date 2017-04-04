@@ -3,7 +3,7 @@ import { loadProductById as loadPById } from './api'
 
 export function loadAllProducts() {
     return {
-        type: LOAD_ALL_ARTICLES,
+        type: LOAD_ALL_PRODUCTS,
         callApi: '/api/product'
     }
 }
