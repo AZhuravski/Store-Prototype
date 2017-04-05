@@ -1,5 +1,5 @@
 {
-  "name": "react_course_29_03",
+  "name": "store-prototype",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -42,8 +42,8 @@
     "redux-multi": "^0.1.12",
     "redux-thunk": "^2.0.1",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
     "react": "^0.14.7",
