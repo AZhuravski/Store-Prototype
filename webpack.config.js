@@ -19,14 +19,22 @@ module.exports = {
         }]
     },
     module: {
-        loaders: [
+        rules: [
+            {
+                test: /\.css/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader"
+                    }
+                ]
+            },
             {
                 test: /\.jsx?/,
-                loaders: ['babel'],
+                loaders: ['babel-loader'],
                 include: path.join(__dirname, 'src')
-            }, {
-                test: /\.css/,
-                loader: 'style-loader!css-loader'
             }
         ]
     }
