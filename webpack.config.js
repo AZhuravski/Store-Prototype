@@ -1,5 +1,9 @@
 var path = require('path')
 var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+const extractCSS = new ExtractTextPlugin('external.css')
+const extractLESS = new ExtractTextPlugin('index.css')
 
 module.exports = {
     devtool: 'eval',
@@ -20,22 +24,28 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.css/,
-                use: [
-                    {
-                        loader: "style-loader"
-                    },
-                    {
-                        loader: "css-loader"
-                    }
-                ]
-            },
-            {
+            {   
                 test: /\.jsx?/,
                 loaders: ['babel-loader'],
                 include: path.join(__dirname, 'src')
-            }
+            },
+            {
+                test: /\.css$/,
+                use: extractCSS.extract([
+                    'css-loader'
+                ])
+            },
+            {
+                test: /\.less$/,
+                loader: extractLESS.extract([
+                    'css-loader',
+                    'less-loader'
+                ])
+            }            
         ]
-    }
+    },
+    plugins: [
+        extractCSS,
+        extractLESS
+    ]
 }

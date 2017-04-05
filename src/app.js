@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import store from './store'
 import routes from './routes'
+require('./less/index.less')
 
 // It's for debugging only. Store is available in console now.
 window.store = store
