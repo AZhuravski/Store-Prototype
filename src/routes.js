@@ -10,6 +10,7 @@ export default (
     <Router history = {history}>
     	<Redirect from = "/" to = "/products" />
         <Route path = "/" component = {App}>
+        	<Route path = "products/:id" component = {Counter} />
             <Route path = "products" component = {Products} />
             <Route path = "articles" component = {Articles} />
             <Route path = "counter" component = {Counter} />

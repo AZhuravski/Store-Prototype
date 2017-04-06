@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import { loadProductById } from '../AC/products'
 
 class Product extends Component {
@@ -9,7 +10,7 @@ class Product extends Component {
 
     render() {
         return (
-            <div className="product" >
+            <Link to={`products/${this.props.product.id}`}>
                 <div className="title" onClick={this.handleLoadProduct}>
                     {this.props.product.title}
                 </div>
@@ -18,7 +19,7 @@ class Product extends Component {
                 <div className="price">
                     {this.props.product.price}
                 </div>
-            </div>
+            </Link>
         )
     }
 

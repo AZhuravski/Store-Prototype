@@ -14,11 +14,11 @@ class ProductList extends Component {
     render() {
         const { products, loading } = this.props
         if (loading) return <h1>Loading...</h1>
-        const items = products.map((product) => <li key = {product.id}><Product {...{ product }}/></li>)
+        const items = products.map((product) => <div className="product" key={product.id}><Product {...{ product }}/></div>)
         return (
-            <ul>
+            <div className="product-list">
                 {items}
-            </ul>
+            </div>
         )
     }
 }

@@ -11,7 +11,9 @@ class App extends Component {
         return (
             <Provider store={store}>
             	<div>
-            		Store Application
+            		<div className="store-title">
+                        Store Application
+                    </div>
                 	{this.props.children}
                 </div>
             </Provider>
